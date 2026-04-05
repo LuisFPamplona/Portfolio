@@ -9,6 +9,7 @@ export function Navbar() {
         <div className="flex gap-6">
           <NavItem to="/" label="Home" />
           <NavItem to="/projects" label="Projetos" />
+          <NavItem to="/journey" label="Jornada" />
           <NavItem to="/contact" label="Contato" />
         </div>
       </div>

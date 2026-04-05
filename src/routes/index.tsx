@@ -2,6 +2,7 @@ import Home from "../pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
+import Journey from "../pages/Journey";
 
 function AppRoutes() {
   return (
@@ -10,6 +11,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/journey" element={<Journey />} />
       </Routes>
     </>
   );
