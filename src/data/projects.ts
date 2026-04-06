@@ -15,4 +15,11 @@ export const projects: Project[] = [
     github: "https://github.com/LuisFPamplona/LUISta",
     demo: "https://lui-sta.vercel.app/",
   },
+  {
+    title: "Taskly",
+    description: "Gerenciador de tarefas",
+    techs: ["React", "Tailwind CSS", "Express", "MongoDB"],
+    github: "https://github.com/LuisFPamplona/taskly",
+    demo: "https://taskly-woad.vercel.app/",
+  },
 ];

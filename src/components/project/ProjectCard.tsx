@@ -15,11 +15,11 @@ const ProjectCard = ({ project, index }: Props) => {
         <h2 className="text-xl font-semibold text-white">{project.title}</h2>
         <p className="flex flex-wrap gap-2 mt-4">{project.description}</p>
 
-        <div>
+        <div className="flex gap-0.5 mt-1">
           {project.techs.map((tech) => (
             <span
               key={tech}
-              className="text-xs bg-zinc-800 text-zinc-300  px-2 py-1 rounded-md "
+              className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded-md "
             >
               {tech}
             </span>
