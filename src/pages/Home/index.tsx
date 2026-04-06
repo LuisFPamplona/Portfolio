@@ -60,7 +60,7 @@ const Home = () => {
 
         <div className="flex justify-center md:justify-end">
           <img
-            src="public\Eumesmo.jpeg"
+            src="public/eu-mesmo.jpeg"
             alt="Foto de perfil"
             className="w-72 h-92 object-cover rounded-full border border-zinc-800"
           />
