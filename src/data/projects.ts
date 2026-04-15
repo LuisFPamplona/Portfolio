@@ -2,6 +2,22 @@ import type { Project } from "../types/project";
 
 export const projects: Project[] = [
   {
+    title: "Revisei",
+    description: "Site para gerenciar os seus estudos.",
+    techs: [
+      "Typescript",
+      "React",
+      "Tailwind CSS",
+      "Express",
+      "PostgreeSQL",
+      "Prisma",
+      "Autenticação JWT",
+      "RESTful API",
+      "Responsividade",
+    ],
+    github: "https://github.com/LuisFPamplona/front-end-revisei",
+  },
+  {
     title: "financee",
     description: "App de controle financeiro",
     techs: ["React", "Tailwind CSS"],
