@@ -12,6 +12,7 @@ function AppRoutes() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/journey" element={<Journey />} />
+<Route path="*" element={<Home />} />
       </Routes>
     </>
   );
