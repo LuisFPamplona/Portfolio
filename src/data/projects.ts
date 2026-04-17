@@ -16,6 +16,7 @@ export const projects: Project[] = [
       "Responsividade",
     ],
     github: "https://github.com/LuisFPamplona/front-end-revisei",
+    demo: "https://revisei.vercel.app/",
   },
   {
     title: "financee",
