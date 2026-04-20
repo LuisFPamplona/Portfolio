@@ -1,16 +1,45 @@
 import { NavLink } from "react-router-dom";
+import { Home, FolderCode, Briefcase, Mail, Code2 } from "lucide-react";
 
 export function Navbar() {
   return (
-    <nav className="border-b bg-zinc-800">
-      <div className="max-w-5xl mx-auto flex items-center justify-between p-4">
-        <h1 className="text-white font-semibold text-lg">Luis Pamplona</h1>
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-zinc-950/70 backdrop-blur-md">
+      <div className="max-w-5xl mx-auto flex items-center justify-between p-4 px-6">
+        <div className="flex items-center gap-2 group cursor-pointer">
+          <div className="bg-blue-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-300">
+            <Code2 size={20} className="text-white" />
+          </div>
+          <h1 className="text-white font-bold text-xl tracking-tight">
+            Luis <span className="text-blue-500">Pamplona</span>
+          </h1>
+        </div>
 
-        <div className="flex gap-6">
-          <NavItem to="/" label="Home" />
-          <NavItem to="/projects" label="Projetos" />
-          <NavItem to="/journey" label="Jornada" />
-          <NavItem to="/contact" label="Contato" />
+        <div className="flex items-center gap-2 md:gap-4">
+          <NavItem to="/" label="Home" icon={<Home size={18} />} />
+          <NavItem
+            to="/projects"
+            label="Projetos"
+            icon={<FolderCode size={18} />}
+          />
+          <NavItem
+            to="/journey"
+            label="Jornada"
+            icon={<Briefcase size={18} />}
+          />
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                isActive
+                  ? "bg-white text-black"
+                  : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+              }`
+            }
+          >
+            <Mail size={18} />
+            <span className="hidden sm:inline">Contato</span>
+          </NavLink>
         </div>
       </div>
     </nav>
@@ -20,19 +49,29 @@ export function Navbar() {
 interface NavItemProps {
   to: string;
   label: string;
+  icon: React.ReactNode;
 }
 
-function NavItem({ to, label }: NavItemProps) {
+function NavItem({ to, icon, label }: NavItemProps) {
   return (
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `text-sm transition ${
-          isActive ? "text-white" : "text-zinc-400 hover:text-white"
+        `relative flex items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-300 ${
+          isActive ? "text-blue-400" : "text-zinc-400 hover:text-white"
         }`
       }
     >
-      {label}
+      {({ isActive }) => (
+        <>
+          {icon}
+          <span className="hidden md:inline">{label}</span>
+
+          {isActive && (
+            <div className="absolute -bottom-4.25 left-0 right-0 h-0.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+          )}
+        </>
+      )}
     </NavLink>
   );
 }
