@@ -36,7 +36,7 @@ const ProjectList = () => {
   };
 
   return (
-    <div className="flex flex-col items-center text-white p-4 overflow-hidden">
+    <div className="flex flex-col items-center text-zinc-950 p-4 overflow-hidden">
       <div className="relative w-full max-w-6xl">
         <div
           className="flex transition-transform duration-500 ease-in-out py-10"
@@ -58,7 +58,7 @@ const ProjectList = () => {
                     : "opacity-20 blur-md scale-90 z-0 pointer-events-none select-none"
                 }`}
               >
-                <ProjectCard index={index} project={project} />
+                <ProjectCard project={project} />
               </div>
             );
           })}
@@ -67,14 +67,14 @@ const ProjectList = () => {
         <div className="absolute top-1/2 -translate-y-1/2 w-full hidden md:flex justify-between px-4 z-20 pointer-events-none">
           <button
             onClick={prevSlide}
-            className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-all pointer-events-auto"
+            className="p-3 bg-white/90 border border-zinc-200 text-zinc-800 backdrop-blur-md rounded-full hover:bg-zinc-100 transition-all pointer-events-auto shadow-sm"
           >
             <ChevronLeft size={32} />
           </button>
 
           <button
             onClick={nextSlide}
-            className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-all pointer-events-auto"
+            className="p-3 bg-white/90 border border-zinc-200 text-zinc-800 backdrop-blur-md rounded-full hover:bg-zinc-100 transition-all pointer-events-auto shadow-sm"
           >
             <ChevronRight size={32} />
           </button>
@@ -87,8 +87,8 @@ const ProjectList = () => {
               onClick={() => setCurrentIndex(index)}
               className={`transition-all duration-300 rounded-full ${
                 currentIndex === index
-                  ? "bg-blue-500 w-8 h-2"
-                  : "bg-gray-700 w-2 h-2"
+                  ? "bg-zinc-950 w-8 h-2"
+                  : "bg-zinc-300 w-2 h-2"
               }`}
             />
           ))}
