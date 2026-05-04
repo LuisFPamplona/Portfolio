@@ -9,4 +9,5 @@ export interface Project {
 export interface Tech {
   name: string;
   link: string;
+  color: string;
 }

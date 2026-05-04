@@ -1,50 +1,51 @@
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "../../types/project";
+import TechBadge from "../ui/TechBadge";
 
 interface Props {
   project: Project;
-  index: number;
+  featured?: boolean;
 }
 
-const ProjectCard = ({ project, index }: Props) => {
+const ProjectCard = ({ project, featured = false }: Props) => {
   return (
-    <div
-      className="bg-zinc-900/50 backdrop-blur-sm group p-6 rounded-3xl border border-zinc-800 hover:border-blue-500/50 transition-all duration-300 opacity-0 animate-fadeUp w-full max-w-sm min-h-45 flex flex-col justify-between shadow-2xl hover:shadow-blue-500/10"
-      style={{ animationDelay: `${index * 100}ms` }}
+    <article
+      className={`flex h-full flex-col justify-between rounded-3xl border bg-white p-6 shadow-xl transition hover:-translate-y-1 ${
+        featured
+          ? "border-zinc-300 shadow-zinc-900/10"
+          : "border-zinc-200 shadow-zinc-900/5"
+      }`}
     >
       <div>
-        <h2 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+        {featured && (
+          <span className="mb-4 inline-flex rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold uppercase tracking-widest text-zinc-700">
+            Super destaque
+          </span>
+        )}
+
+        <h2 className="text-3xl font-extrabold text-zinc-950">
           {project.title}
         </h2>
-
-        <p className="text-zinc-400 text-sm leading-relaxed mt-3 line-clamp-3">
+        <p className="mt-3 text-base leading-relaxed text-zinc-600">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-3 mt-6">
+        <div className="mt-6 flex flex-wrap gap-2">
           {project.techs.map((tech) => (
-            <div
-              key={tech.name}
-              className="bg-zinc-800/50 p-1.5 rounded-lg border border-zinc-700 hover:scale-110 transition-transform cursor-help"
-              title={tech.name}
-            >
-              <img
-                src={tech.link}
-                alt={tech.name}
-                className="w-6 h-6 object-contain grayscale group-hover:grayscale-0 transition-all"
-              />
-            </div>
+            <TechBadge key={tech.name} tech={tech} />
           ))}
         </div>
       </div>
 
-      <div className="flex gap-3 mt-8">
+      <div className="mt-8 flex flex-wrap gap-3">
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 text-center py-2.5 rounded-xl border border-zinc-700 text-zinc-300 font-medium text-sm hover:bg-zinc-800 hover:text-white transition-all active:scale-95"
+          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-zinc-200 px-4 py-3 text-sm font-bold text-zinc-800 transition hover:border-zinc-400"
         >
           GitHub
+          <ArrowUpRight size={16} />
         </a>
 
         {project.demo && (
@@ -52,13 +53,14 @@ const ProjectCard = ({ project, index }: Props) => {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center py-2.5 rounded-xl bg-white text-black font-bold text-sm hover:bg-blue-400 transition-all active:scale-95 shadow-lg shadow-white/5"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-zinc-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-zinc-800"
           >
             Live Demo
+            <ArrowUpRight size={16} />
           </a>
         )}
       </div>
-    </div>
+    </article>
   );
 };
 

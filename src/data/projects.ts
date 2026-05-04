@@ -12,6 +12,8 @@ export const projects: Project[] = [
       TECHS.express,
       TECHS.postgres,
       TECHS.prisma,
+      TECHS.zod,
+      TECHS.jest,
     ],
     github: "https://github.com/LuisFPamplona/front-end-revisei",
     demo: "https://revisei.vercel.app/",

@@ -3,14 +3,14 @@ import { Home, FolderCode, Briefcase, Mail, Code2 } from "lucide-react";
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-zinc-950/70 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md shadow-sm">
       <div className="max-w-5xl mx-auto flex items-center justify-between p-4 px-6">
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="bg-blue-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-300">
+          <div className="bg-zinc-950 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-300">
             <Code2 size={20} className="text-white" />
           </div>
-          <h1 className="text-white font-bold text-xl tracking-tight">
-            Luis <span className="text-blue-500">Pamplona</span>
+          <h1 className="text-zinc-950 font-bold text-xl tracking-tight">
+            Luis <span className="text-zinc-500">Pamplona</span>
           </h1>
         </div>
 
@@ -32,8 +32,8 @@ export function Navbar() {
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 isActive
-                  ? "bg-white text-black"
-                  : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+                  ? "bg-zinc-950 text-white"
+                  : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 hover:text-zinc-950"
               }`
             }
           >
@@ -58,7 +58,7 @@ function NavItem({ to, icon, label }: NavItemProps) {
       to={to}
       className={({ isActive }) =>
         `relative flex items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-300 ${
-          isActive ? "text-blue-400" : "text-zinc-400 hover:text-white"
+          isActive ? "text-zinc-950" : "text-zinc-600 hover:text-zinc-950"
         }`
       }
     >
@@ -68,7 +68,7 @@ function NavItem({ to, icon, label }: NavItemProps) {
           <span className="hidden md:inline">{label}</span>
 
           {isActive && (
-            <div className="absolute -bottom-4.25 left-0 right-0 h-0.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+            <div className="absolute -bottom-4.25 left-0 right-0 h-0.5 bg-zinc-950 rounded-full shadow-[0_0_8px_rgba(24,24,27,0.28)]" />
           )}
         </>
       )}
